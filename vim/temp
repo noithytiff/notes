@@ -1,0 +1,167 @@
+filetype off
+filetype plugin indent off
+
+
+" Sets the runtime path to include Vundle and initialize.
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'ervandew/supertab'
+Plugin 'lervag/vimtex'
+Plugin 'wincent/command-t'
+Plugin 'aperezdc/vim-template'
+Plugin 'ntpeters/vim-better-whitespace'
+Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'scrooloose/nerdtree'
+Plugin 'severin-lemaignan/vim-minimap'
+call vundle#end()
+
+
+" Non-Plugin setups.
+filetype plugin indent on
+syntax on
+set nocompatible
+set guifont=Monaco:h13
+set enc=utf-8
+set fenc=utf-8
+" Enables auto-completion to show up.
+set wildmenu
+" Ignores case of searches.
+set ignorecase
+" Smart search.
+set smartcase
+" Max color width.
+set colorcolumn=80
+" Indent setups.
+set autoindent
+set smartindent
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set expandtab
+" Shows the commands entered.
+set showcmd
+" Don’t reset cursor to start of line when moving around.
+set nostartofline
+" Instead of failing a command because of unsaved changes, raises a
+" dialogue asking if you wish to save changed files.
+set confirm
+" Uses visual bell instead of beeping when doing something wrong.
+set visualbell
+" Enables use of the mouse for all modes.
+set mouse=a
+" Sets the command window height to 2 lines, to avoid many cases of having to
+" press <Enter> to continue
+set shortmess=a
+set cmdheight=2
+" Quickly times out on keycodes, but never time out on mappings.
+set notimeout ttimeout ttimeoutlen=200
+set paste
+" Maps Y to act like D and C, i.e. to yank until EOL, rather than act as yy,
+" which is the default
+map Y y$
+" Maps <C-L> (redraw screen) to also turn off search highlighting until the
+" next search
+nnoremap <C-L> :nohl<CR><C-L>
+set ruler
+set number
+" Better backspace.
+set backspace=indent,eol,start
+" Lines to scroll when cursor leaves screen.
+set scrolljump=5
+" Minimum lines to keep above and below cursor.
+set scrolloff=5
+" Shows title.
+set title
+" Do not automatically wrap on load.
+set nowrap
+" Auto switch to current dir.
+set autochdir
+" use » to mark Tabs and ° to mark trailing whitespace. This is a
+" non-obtrusive way to mark these special characters.
+set list listchars=tab:»\ ,trail:°
+" Automatically change the working path to the path of the current file.
+autocmd BufNewFile,BufEnter * silent! lcd %:p:h
+" Highlight the search term when you search for it.
+set hlsearch
+" By default, it looks up man pages for the word under the cursor, which isn't
+" very useful, so we map it to something else.
+nnoremap <s-k> <CR>
+let mapleader=','
+set textwidth=80
+" Indicates current window.
+autocmd WinEnter * setlocal cursorline
+autocmd BufEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
+setlocal cursorline
+
+
+" Autoformat setting.
+let g:formatdef_autopep8 = "'autopep8 - --range '.a:firstline.' '.a:lastline"
+let g:formatters_python = ['autopep8']
+let g:formatprg_args_expr_python =
+    \ '(&textwidth ? " --max-line-length=" . &textwidth : "") . " -" '
+
+
+" Comment setting.
+" Adds spaces after comment delimiters by default.
+let g:NERDSpaceDelims = 1
+" Uses compact syntax for prettified multi-line comments.
+let g:NERDCompactSexyComs = 1
+" Aligns line-wise comment delimiters flush left instead of following code
+" indentation.
+let g:NERDDefaultAlign = 'left'
+" Sets a language to use its alternate delimiters by default.
+let g:NERDAltDelims_java = 1
+" Adds your own custom formats or override the defaults.
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allows commenting and inverting empty lines (useful when commenting a
+" region).
+let g:NERDCommentEmptyLines = 1
+" Enables trimming of trailing whitespace when uncommenting.
+let g:NERDTrimTrailingWhitespace = 1
+
+
+" Enables spell check when working on plt, tex, bib, md and txt files.
+autocmd BufRead,BufNewFile *.plt,*.tex,*.bib,*.md,*.txt setlocal spell
+
+
+" Airline configs.
+set noshowmode
+set laststatus=2
+
+
+" Nicer netrw.
+let g:netrw_list_hide='.*\.swp$,\~$,\.orig$'
+
+
+" Tab movement.
+map <C-Tab> :tabnext<cr>
+
+
+" Hard line wrap.
+" http://vim.wikia.com/wiki/80_character_line_wrap_without_broken_words
+function Wraplinesat80()
+     :set formatoptions+=w
+     :set tw=80
+     normal! gggqG
+     return
+endfunction
+
+
+" Terminal editing cursor type.
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+
+
+" autocmd vimenter * NERDTree
+" autocmd BufEnter * NERDTreeMirror
+" autocmd vimenter * Minimap
