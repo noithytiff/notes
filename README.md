@@ -1,5 +1,4 @@
-Notes and Tricks.
+Notes and Tricks
 =====
 
-I summarize some tricks hacks and notes during my daily programming. Happy
-programming!
+I summarize some tricks, hacks and notes during here.
