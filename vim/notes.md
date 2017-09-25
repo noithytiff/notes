@@ -8,6 +8,6 @@ gvim scp://USERNAME@SERVER/FULL_PATH_TO_FILE
 
 2. Useful command.
 ```
-`.
+`. goes to previous location.
 ```
-goes to previous location.
+
