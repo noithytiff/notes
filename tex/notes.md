@@ -1,6 +1,6 @@
 # Notes for Tex
 
-1. Useful macros.
+1. Useful macros. <br/>
 Math
 ```tex
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -103,7 +103,7 @@ Packed item and enumerate.
  }
 ```
 
-5. mbox.
+5. mbox.<br/>
 TODO(ysyao).
 
 6. Downsample eps figure.
@@ -113,5 +113,5 @@ eps2eps oldfile newfile
 
 7. Remove embarrassing commands before uploading to arXiv.
 ```shell
-perl -pe 's/(^|[^\\])%.*/\1%/'
+perl -pe 's/(^|[^\\])%.*/\1%/' oldfilename newfilename
 ```
