@@ -1,6 +1,6 @@
 # Notes for Tex
 
-1. Useful macros. <br/>
+1. Useful macros.  
 Math
 ```tex
 \DeclareMathOperator*{\argmin}{arg\,min}
