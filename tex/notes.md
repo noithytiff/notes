@@ -1,6 +1,6 @@
 # Notes for Tex
 
-1. Useful macros.  
+1. Useful macros.
 Math
 ```tex
 \DeclareMathOperator*{\argmin}{arg\,min}
@@ -103,15 +103,32 @@ Packed item and enumerate.
  }
 ```
 
-5. mbox.<br/>
-TODO(ysyao).
+5. mbox.
+```tex
+\begin{figure}[t]
+\centering
+\mbox{
+    \subfigure[CAPTION_TEXT_1]{
+        \includegraphics[width=0.235\textwidth]{FIG_PATH_1}
+        \label{fig:TAG_1}
+    }
+    \hfill
+    \subfigure[CAPTION_TEXT_2]{
+        \includegraphics[width=0.235\textwidth]{FIG_PATH_2}
+        \label{fig:TAG_2}
+    }
+}
+\caption{CAPTION_TEXT_3}
+\end{figure}
+```
+
 
 6. Downsample eps figure.
-```shell
+```bash
 eps2eps oldfile newfile
 ```
 
 7. Remove embarrassing commands before uploading to arXiv.
-```shell
+```bash
 perl -pe 's/(^|[^\\])%.*/\1%/' oldfilename newfilename
 ```
