@@ -1,7 +1,7 @@
 # Notes for Gmail
 
-1. [Create label and display in Multiple Inboxes](https://blog.hubspot.com/
-sales/email-multiple-inboxes).
+1. [Create label and display
+in Multiple Inboxes](https://blog.hubspot.com/sales/email-multiple-inboxes).
 
 2. Gmail shortcuts.
 
