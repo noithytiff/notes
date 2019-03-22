@@ -132,3 +132,28 @@ eps2eps oldfile newfile
 ```bash
 perl -pe 's/(^|[^\\])%.*/\1%/' oldfilename newfilename
 ```
+
+8. Two figures in a row with the same group of captions.
+```
+\usepackage{caption}
+\usepackage{subcaption}
+
+\begin{figure*}[!t]
+    \centering
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure1.eps}
+        \caption{XXXXX.}
+		\label{fig:xxx}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[t]{0.495\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{figure2.eps}
+        \caption{XXXXX.}
+		\label{fig:xxx}
+    \end{subfigure}
+    \caption{XXXXX.}
+	\label{fig:xxx}
+\end{figure*}
+```
